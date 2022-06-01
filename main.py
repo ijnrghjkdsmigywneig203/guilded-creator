@@ -1,5 +1,5 @@
-import httpx, random, string, binascii, os, uuid; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from colorama import Fore, init 
-init(autoreset=True)
+import httpx, random, string, binascii, os, uuid; from concurrent.futures import ThreadPoolExecutor; from itertools import cycle; from colorama import Fore, init
+
 
 def GetProxies():
     with open("proxies.txt", "r") as temp_file:
@@ -15,6 +15,8 @@ def GetProxy():
     else:
         return proxy
 
+    
+    
 def register():
     while True:
         try:
@@ -34,8 +36,10 @@ def register():
         except Exception as error:
             print(error)
             register()
+            
+    
 if __name__=="__main__":
-    init()
+    init(autoreset=True)
     threadAmount = input(f"{Fore.BLUE}Number of threads -> {Fore.RESET}")
     threadAmount = 1 if threadAmount == "" else int(threadAmount)
     threads = []
